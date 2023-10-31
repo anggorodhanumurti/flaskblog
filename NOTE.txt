@@ -1,0 +1,10 @@
+1) project structure:
+flaskblog\          -- project folder contain application code
+  .venv\            -- virtual environment  
+  app\              -- "app" module
+    __init__.py     -- initialization file that mark direectory app to python package
+    routes.py       -- view function
+    templates\      -- all html template stored here
+  blog.py           -- main application module
+
+2)
