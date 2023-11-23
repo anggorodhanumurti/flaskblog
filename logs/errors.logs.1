@@ -1,4 +1,4 @@
-2023-11-10 09:03:00,881, ERROR: Exception on /edit_profile [POST] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
+2023-11-10 09:03:45,129, ERROR: Exception on /edit_profile [POST] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
     self.dialect.do_execute(
@@ -84,4 +84,48 @@ sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed
 [SQL: UPDATE user SET username=? WHERE user.id = ?]
 [parameters: ('bayu', 3)]
 (Background on this error at: https://sqlalche.me/e/20/gkpj)
-2023-11-10 09:03:39,359, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-14 12:19:46,327, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-14 12:30:07,526, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-14 12:30:19,103, ERROR: Exception on /explore [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 1599, in __getattr__
+    return getattr(self.comparator, key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Comparator' object has no attribute 'all'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 135, in explore
+    posts = Post.query.order_by(Post.timestamp.desc().all())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 1601, in __getattr__
+    raise AttributeError(
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'all'
+2023-11-14 12:32:25,159, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-14 12:33:26,579, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-15 12:25:22,998, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-15 12:31:18,785, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-17 11:21:41,396, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-17 11:23:07,788, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-17 11:26:18,676, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-17 11:38:00,232, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-20 07:38:50,208, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-20 07:48:26,040, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-20 07:52:03,937, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-20 07:55:01,402, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]

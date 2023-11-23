@@ -1,47 +1,4 @@
-2023-11-10 09:00:07,927, ERROR: Exception on /user/bayu [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
-Traceback (most recent call last):
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 77, in user
-    return render_template('user.html', user=user, posts=posts, form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
-    self.environment.handle_exception()
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/base.html", line 33, in top-level template code
-    {% block content %} {% endblock %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/user.html", line 14, in block 'content'
-    {% elif not current_user.is_following(user) %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/models.py", line 50, in is_following
-    return self.followed.filter(
-           ^^^^^^^^^^^^^^^^^^^^^
-TypeError: '>' not supported between instances of 'method' and 'int'
-2023-11-10 09:01:55,244, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
-2023-11-10 09:02:50,982, ERROR: Exception on /edit_profile [POST] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
+2023-11-10 09:03:00,881, ERROR: Exception on /edit_profile [POST] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
     self.dialect.do_execute(
@@ -127,3 +84,4 @@ sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed
 [SQL: UPDATE user SET username=? WHERE user.id = ?]
 [parameters: ('bayu', 3)]
 (Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-11-10 09:03:39,359, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
