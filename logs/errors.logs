@@ -1,4 +1,4 @@
-2023-11-30 16:45:22,226, ERROR: Exception on /reset_password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNldF9wYXNzd29yZCI6NSwiZXhwIjoxNzAxMzM4MDIxLjA5ODI2Mn0.Fb3owwztJdQy6r4-2FOqNan_nXRFKA6-2a11AOfAoPI [POST] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
+2023-12-06 13:20:08,469, ERROR: Exception on /index [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,60 +12,36 @@ Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 185, in reset_password
-    return render_template('reset_password.html', form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
-    self.environment.handle_exception()
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 39, in index
+    return render_template('index.html', title='Home Page', form=form,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/reset_password.html", line 1, in top-level template code
-    {% extends 'base.html' %}
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/base.html", line 34, in top-level template code
-    {% block content %} {% endblock %}
+  File "/home/dhanumurti/Project/python/flaskblog/app/templates/index.html", line 7, in template
+    {% wtf.quick_form(form) %}
     ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/reset_password.html", line 8, in block 'content'
-    {{ form.password.label }}<br>
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
-    return getattr(obj, attribute)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-jinja2.exceptions.UndefinedError: 'app.forms.ResetPasswordForms object' has no attribute 'password'
-2023-11-30 16:46:07,938, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 16:47:18,557, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 16:49:30,973, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 16:51:14,721, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 21:47:28,921, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 21:49:32,330, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 21:49:45,151, ERROR: Exception on /reset_password_request [POST] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
-Traceback (most recent call last):
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 492, in send
-    message.send(connection)
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 427, in send
-    connection.send(self)
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 188, in send
-    self.host.sendmail(sanitize_address(envelope_from or message.sender),
-  File "/usr/lib/python3.11/smtplib.py", line 872, in sendmail
-    self.ehlo_or_helo_if_needed()
-  File "/usr/lib/python3.11/smtplib.py", line 611, in ehlo_or_helo_if_needed
-    if not (200 <= self.ehlo()[0] <= 299):
-                   ^^^^^^^^^^^
-  File "/usr/lib/python3.11/smtplib.py", line 451, in ehlo
-    self.putcmd(self.ehlo_msg, name or self.local_hostname)
-  File "/usr/lib/python3.11/smtplib.py", line 378, in putcmd
-    self.send(f'{s}{CRLF}')
-  File "/usr/lib/python3.11/smtplib.py", line 365, in send
-    raise SMTPServerDisconnected('please run connect() first')
-smtplib.SMTPServerDisconnected: please run connect() first
-
-During handling of the above exception, another exception occurred:
-
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'wtf'. Jinja was looking for the following tags: 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2023-12-06 13:20:26,972, ERROR: Exception on /index [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -79,29 +55,39 @@ Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 167, in reset_password_request
-    send_password_reset_email(user)
-  File "/home/dhanumurti/Project/python/flaskblog/app/email.py", line 14, in send_password_reset_email
-    send_email('FlaskBlog - Reset Your Password',
-  File "/home/dhanumurti/Project/python/flaskblog/app/email.py", line 10, in send_email
-    mail.send(msg)
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 491, in send
-    with self.connect() as connection:
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 152, in __exit__
-    self.host.quit()
-  File "/usr/lib/python3.11/smtplib.py", line 1004, in quit
-    res = self.docmd("quit")
-          ^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.11/smtplib.py", line 431, in docmd
-    self.putcmd(cmd, args)
-  File "/usr/lib/python3.11/smtplib.py", line 378, in putcmd
-    self.send(f'{s}{CRLF}')
-  File "/usr/lib/python3.11/smtplib.py", line 365, in send
-    raise SMTPServerDisconnected('please run connect() first')
-smtplib.SMTPServerDisconnected: please run connect() first
-2023-11-30 21:50:05,463, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-12-01 12:22:54,958, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-12-01 12:30:04,323, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-12-01 12:30:37,951, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-12-01 12:30:53,027, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-12-01 12:32:09,881, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 39, in index
+    return render_template('index.html', title='Home Page', form=form,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/dhanumurti/Project/python/flaskblog/app/templates/index.html", line 7, in template
+    {% wtf.quick_form(form) %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'wtf'. Jinja was looking for the following tags: 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2023-12-06 13:21:39,921, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-12-06 13:22:42,728, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-12-06 13:23:56,659, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-12-06 13:25:03,407, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-12-06 15:41:39,640, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-12-06 15:43:45,254, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-12-06 15:46:17,704, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]

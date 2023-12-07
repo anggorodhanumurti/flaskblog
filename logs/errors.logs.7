@@ -1,4 +1,13 @@
-2023-11-10 08:57:56,667, ERROR: Exception on /user/bayu [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
+2023-11-20 07:55:36,732, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-20 08:17:36,860, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-20 08:22:26,285, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
+2023-11-23 07:31:56,120, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-23 07:42:23,791, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-23 07:42:33,099, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-23 07:44:19,842, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-23 12:05:17,201, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-23 12:17:56,550, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-23 12:18:13,540, ERROR: Exception on /send [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,32 +24,11 @@ Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 77, in user
-    return render_template('user.html', user=user, posts=posts, form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
-    self.environment.handle_exception()
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/base.html", line 33, in top-level template code
-    {% block content %} {% endblock %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/user.html", line 14, in block 'content'
-    {% elif not current_user.is_following(user) %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/models.py", line 50, in is_following
-    return self.followed.filter(
-           ^^^^^^^^^^^^^^^^^^^^^
-TypeError: '>' not supported between instances of 'method' and 'int'
-2023-11-10 08:58:25,999, ERROR: Exception on /user/susan [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
+  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 161, in send
+    msg.body('Hey paul sending this email from my flask app. Lmk if it work')
+TypeError: 'NoneType' object is not callable
+2023-11-23 12:19:06,606, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-23 12:19:26,693, ERROR: Exception on /send [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -57,32 +45,18 @@ Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 77, in user
-    return render_template('user.html', user=user, posts=posts, form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
-    self.environment.handle_exception()
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/base.html", line 33, in top-level template code
-    {% block content %} {% endblock %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/user.html", line 14, in block 'content'
-    {% elif not current_user.is_following(user) %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/models.py", line 50, in is_following
-    return self.followed.filter(
-           ^^^^^^^^^^^^^^^^^^^^^
-TypeError: '>' not supported between instances of 'method' and 'int'
-2023-11-10 08:58:32,351, ERROR: Exception on /user/bayu [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
+  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 162, in send
+    msg.send(msg)
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 427, in send
+    connection.send(self)
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 427, in send
+    connection.send(self)
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 427, in send
+    connection.send(self)
+  [Previous line repeated 978 more times]
+RecursionError: maximum recursion depth exceeded
+2023-11-23 12:22:13,354, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-23 12:22:17,661, ERROR: Exception on /send [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -99,28 +73,41 @@ Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 77, in user
-    return render_template('user.html', user=user, posts=posts, form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
-    self.environment.handle_exception()
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/base.html", line 33, in top-level template code
-    {% block content %} {% endblock %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/user.html", line 14, in block 'content'
-    {% elif not current_user.is_following(user) %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/models.py", line 50, in is_following
-    return self.followed.filter(
-           ^^^^^^^^^^^^^^^^^^^^^
-TypeError: '>' not supported between instances of 'method' and 'int'
+  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 164, in send
+    msg.send(msg)
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 427, in send
+    connection.send(self)
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 427, in send
+    connection.send(self)
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 427, in send
+    connection.send(self)
+  [Previous line repeated 978 more times]
+RecursionError: maximum recursion depth exceeded
+2023-11-23 12:56:01,522, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-30 12:37:27,993, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-30 12:38:46,033, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-30 12:38:50,074, ERROR: Exception on /reset_password_request [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 161, in reset_password_request
+    if current_user.is_authtenticated:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUserMixin' object has no attribute 'is_authtenticated'
+2023-11-30 12:39:59,007, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-30 12:41:31,591, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-30 12:44:28,591, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-30 12:55:59,775, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-30 12:56:38,788, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-30 13:02:14,222, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-11-30 13:07:29,039, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]

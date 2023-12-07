@@ -1,4 +1,64 @@
-2023-11-30 13:08:16,022, ERROR: Exception on /reset_password_request [POST] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
+2023-12-06 08:17:45,738, ERROR: Exception on /favicon.ico [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/app/errors.py", line 6, in not_found_error
+    return render_template('404.html'), 404
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/dhanumurti/Project/python/flaskblog/app/templates/404.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/home/dhanumurti/Project/python/flaskblog/app/templates/base.html", line 65, in top-level template code
+    {{ moment.include_moment() }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'moment' is undefined
+2023-12-06 08:17:59,968, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-12-06 09:05:16,407, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-12-06 13:05:06,316, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-12-06 13:06:39,258, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-12-06 13:13:23,602, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-12-06 13:14:57,725, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-12-06 13:15:07,354, ERROR: Exception on /index [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,11 +72,12 @@ Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 167, in reset_password_request
-    send_password_reset_email(user)
-  File "/home/dhanumurti/Project/python/flaskblog/app/email.py", line 17, in send_password_reset_email
-    text_body=render_template('email/reset_password.txt',
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 39, in index
+    return render_template('index.html', title='Home Page', form=form,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 150, in render_template
     template = app.jinja_env.get_or_select_template(template_name_or_list)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -36,74 +97,8 @@ Traceback (most recent call last):
     self.handle_exception(source=source_hint)
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/email/reset_password.txt", line 4, in template
-    {{ url_for('reset_password' token=token, _external=True) }}
+  File "/home/dhanumurti/Project/python/flaskblog/app/templates/index.html", line 7, in template
+    {% wtf.quick_form(form) %}
     ^^^^^^^^^^^^^^^^^^^^^^^^^
-jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'token'
-2023-11-30 13:09:51,238, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 13:10:00,100, ERROR: Exception on /reset_password_request [POST] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
-Traceback (most recent call last):
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 167, in reset_password_request
-    send_password_reset_email(user)
-  File "/home/dhanumurti/Project/python/flaskblog/app/email.py", line 17, in send_password_reset_email
-    text_body=render_template('email/reset_password.txt',
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 150, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1010, in get_template
-    return self._load_template(name, globals)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 969, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 768, in compile
-    self.handle_exception(source=source_hint)
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/dhanumurti/Project/python/flaskblog/app/templates/email/reset_password.txt", line 4, in template
-    {{ url_for('reset_password' token=token, _external=True) }}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'token'
-2023-11-30 13:15:34,722, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 13:15:42,480, ERROR: Exception on /reset_password_request [POST] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
-Traceback (most recent call last):
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 167, in reset_password_request
-    send_password_reset_email(user)
-  File "/home/dhanumurti/Project/python/flaskblog/app/email.py", line 14, in send_password_reset_email
-    send_email('FlaskBlog - Reset Your Password',
-  File "/home/dhanumurti/Project/python/flaskblog/app/email.py", line 7, in send_email
-    msg = Message(subject, sender=sender, recepients=recepients)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: Message.__init__() got an unexpected keyword argument 'recepients'
-2023-11-30 13:17:53,925, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'wtf'. Jinja was looking for the following tags: 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2023-12-06 13:19:28,380, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]

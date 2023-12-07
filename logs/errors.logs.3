@@ -1,13 +1,4 @@
-2023-11-20 07:55:36,732, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
-2023-11-20 08:17:36,860, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
-2023-11-20 08:22:26,285, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:30]
-2023-11-23 07:31:56,120, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-23 07:42:23,791, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-23 07:42:33,099, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-23 07:44:19,842, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-23 12:05:17,201, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-23 12:17:56,550, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-23 12:18:13,540, ERROR: Exception on /send [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
+2023-12-06 08:15:40,727, ERROR: Exception on /login [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -21,14 +12,82 @@ Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 161, in send
-    msg.body('Hey paul sending this email from my flask app. Lmk if it work')
-TypeError: 'NoneType' object is not callable
-2023-11-23 12:19:06,606, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-23 12:19:26,693, ERROR: Exception on /send [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
+  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 57, in login
+    return render_template('login.html', title='Sign in', form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/dhanumurti/Project/python/flaskblog/app/templates/login.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/dhanumurti/Project/python/flaskblog/app/templates/base.html", line 72, in template
+    {% block content %} {% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateAssertionError: block 'content' defined twice
+2023-12-06 08:15:40,879, ERROR: Exception on /favicon.ico [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 655, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/app/errors.py", line 6, in not_found_error
+    return render_template('404.html'), 404
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/dhanumurti/Project/python/flaskblog/app/templates/404.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/dhanumurti/Project/python/flaskblog/app/templates/base.html", line 72, in template
+    {% block content %} {% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateAssertionError: block 'content' defined twice
+2023-12-06 08:17:41,342, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+2023-12-06 08:17:45,645, ERROR: Exception on /login [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -42,72 +101,25 @@ Traceback (most recent call last):
   File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 162, in send
-    msg.send(msg)
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 427, in send
-    connection.send(self)
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 427, in send
-    connection.send(self)
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 427, in send
-    connection.send(self)
-  [Previous line repeated 978 more times]
-RecursionError: maximum recursion depth exceeded
-2023-11-23 12:22:13,354, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-23 12:22:17,661, ERROR: Exception on /send [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
-Traceback (most recent call last):
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 164, in send
-    msg.send(msg)
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 427, in send
-    connection.send(self)
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 427, in send
-    connection.send(self)
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask_mail.py", line 427, in send
-    connection.send(self)
-  [Previous line repeated 978 more times]
-RecursionError: maximum recursion depth exceeded
-2023-11-23 12:56:01,522, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 12:37:27,993, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 12:38:46,033, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 12:38:50,074, ERROR: Exception on /reset_password_request [GET] [in /home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py:1414]
-Traceback (most recent call last):
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2190, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1486, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 161, in reset_password_request
-    if current_user.is_authtenticated:
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'AnonymousUserMixin' object has no attribute 'is_authtenticated'
-2023-11-30 12:39:59,007, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 12:41:31,591, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 12:44:28,591, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 12:55:59,775, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 12:56:38,788, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 13:02:14,222, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
-2023-11-30 13:07:29,039, INFO: Server logs [in /home/dhanumurti/Project/python/flaskblog/app/__init__.py:32]
+  File "/home/dhanumurti/Project/python/flaskblog/app/routes.py", line 57, in login
+    return render_template('login.html', title='Sign in', form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/dhanumurti/Project/python/flaskblog/app/templates/login.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/dhanumurti/Project/python/flaskblog/app/templates/base.html", line 65, in top-level template code
+    {{ moment.include_moment() }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhanumurti/Project/python/flaskblog/.venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'moment' is undefined
